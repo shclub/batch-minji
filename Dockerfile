@@ -7,7 +7,8 @@ COPY pom.xml ./
 COPY src ./src                             
 COPY mvnw ./         
 COPY . ./
-
+RUN ./mvnw spring-boot:run
+RUN ./mvnw clean package
 RUN ./mvnw clean -Dmaven.test.skip=true
 
 #FROM eclipse-temurin:17.0.2_8-jre-alpine
