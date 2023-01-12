@@ -8,7 +8,7 @@ COPY src ./src
 COPY mvnw ./         
 COPY . ./
 #RUN ./mvnw spring-boot:run
-RUN ./mvnw clean package
+#RUN ./mvnw clean package
 RUN ./mvnw clean -Dmaven.test.skip=true
 
 #FROM eclipse-temurin:17.0.2_8-jre-alpine
@@ -27,5 +27,5 @@ RUN ./mvnw clean -Dmaven.test.skip=true
 #EXPOSE 80
 
 #ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar  app.jar "]
-#ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
-ENTRYPOINT ["sh", "test/run.sh"]
+ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
+#ENTRYPOINT ["sh", "test/run.sh"]
