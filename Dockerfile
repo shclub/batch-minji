@@ -7,7 +7,7 @@ COPY pom.xml ./
 COPY src ./src                             
 COPY mvnw ./         
 COPY . ./
-RUN ./mvnw spring-boot:run
+#RUN ./mvnw spring-boot:run
 RUN ./mvnw clean package
 RUN ./mvnw clean -Dmaven.test.skip=true
 
