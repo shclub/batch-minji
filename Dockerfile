@@ -25,5 +25,5 @@ RUN ./mvnw clean -Dmaven.test.skip=true
 #EXPOSE 80
 
 #ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar  app.jar "]
-@ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
+#ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
 #ENTRYPOINT ["sh", "test/run.sh"]
