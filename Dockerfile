@@ -7,14 +7,12 @@ COPY pom.xml ./
 COPY src ./src                             
 COPY mvnw ./         
 COPY . ./
-#RUN ./mvnw spring-boot:run
-#RUN ./mvnw clean package
 RUN ./mvnw clean -Dmaven.test.skip=true
 
 #FROM eclipse-temurin:17.0.2_8-jre-alpine
 #FROM ghcr.io/shclub/jre17-runtime:v1.0.0
 
-COPY --from=MAVEN_BUILD /build/target/*.jar app.jar
+#COPY --from=MAVEN_BUILD /build/target/*.jar app.jar
 
 #ENV TZ Asia/Seoul
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -27,5 +25,5 @@ COPY --from=MAVEN_BUILD /build/target/*.jar app.jar
 #EXPOSE 80
 
 #ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar  app.jar "]
-ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
+@ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
 #ENTRYPOINT ["sh", "test/run.sh"]
